@@ -1,15 +1,27 @@
 import React, { useEffect } from 'react'
-import { View, Text } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux'
+import { useNavigation } from '@react-navigation/native';
 import { getDiscountedProducts } from '../../actions/products'
 import { getCarouselProducts } from '../../actions/productCarousels'
 import Carousel from '../../components/Carousel/Carosel'
 import DiscountCard from '../../components/DiscountCard/DiscountCard'
 
+const styles = StyleSheet.create({
+    screen: {
+        width: '100%',
+        height: '100%'
+    },
+    carouselContainer: {
+        width: '100%',
+        height: 230
+    }
+})
+
 export const Dashboard = () => {
     const dispatch = useDispatch()
+    const navigation = useNavigation()
     const { carousels, products } = useSelector((state: any) => {
-        console.log(`>> state: ${JSON.stringify(state)}`)
         return {
             isLoadingProducts: state['products']['isLoading'],
             products: state['products']['discountedProducts'],
@@ -24,19 +36,24 @@ export const Dashboard = () => {
 
 
     const onViewAllDiscountClick = () => {
-
+        navigation.navigate('AllProducts')
     }
 
     const onProductClick = (product: any) => {
         console.log(product)
+        navigation.navigate
     }
 
     return (
-        <View >
-            < View style={{ width: '100%', height: 250 }}>
-                <Carousel items={carousels} />
+        <View style={styles.screen}>
+            <View style={styles.carouselContainer}>
+                <Carousel
+                    items={carousels} />
             </View >
-            <DiscountCard discountProducts={products} onViewAllClick={onViewAllDiscountClick} onProductClick={onProductClick} />
+            <DiscountCard
+                discountProducts={products}
+                onViewAllClick={onViewAllDiscountClick}
+                onProductClick={onProductClick} />
         </View >
     )
 }

@@ -1,4 +1,5 @@
 import React, { ComponentProps } from 'react'
+import { StyleSheet } from 'react-native'
 import { View, Text, ActivityIndicator, FlatList, TouchableOpacity } from 'react-native';
 import { Image } from 'react-native-elements'
 
@@ -9,7 +10,6 @@ interface ProductGridProps {
 
 function ProductGrid(props: ProductGridProps) {
     const { items, onProductPress } = props
-    //console.log(items)
     return (
         <View>
             <FlatList
@@ -19,6 +19,7 @@ function ProductGrid(props: ProductGridProps) {
                     return <ProductItem
                         name={item.name}
                         thumbnail={item.thumbnail}
+                        offerText={item?.offerText}
                         onPress={() => onProductPress?.(item)} />
                 }}
                 numColumns={2}
@@ -34,16 +35,39 @@ interface ProductItemProps {
     onPress?: () => void
 }
 
+
+const styles = StyleSheet.create({
+    productContainer: {
+        width: '48%',
+        height: 220,
+        margin: '1%'
+    },
+    thumbnail: {
+        width: '100%',
+        height: 180
+    },
+    title: {
+        color: 'black',
+        alignSelf: 'center'
+    },
+    offer: {
+        color: 'green',
+        alignSelf: 'center'
+    }
+})
+
 function ProductItem(props: ProductItemProps) {
     const { name, thumbnail, offerText = '' } = props
-    return <TouchableOpacity style={{ width: '48%', height: 220, margin: '1%' }}>
+    return <TouchableOpacity
+        style={styles.productContainer}
+        onPress={props?.onPress}>
         <Image
             source={{ uri: thumbnail }}
-            style={{ width: '100%', height: 180 }}
+            style={styles.thumbnail}
             PlaceholderContent={<ActivityIndicator />}
         />
-        <Text style={{ color: 'black', alignSelf: 'center' }}>{name}</Text>
-        <Text style={{ color: 'green', alignSelf: 'center' }}>{offerText}</Text>
+        <Text style={styles.title}>{name}</Text>
+        <Text style={styles.offer}>{offerText}</Text>
     </TouchableOpacity>
 }
 

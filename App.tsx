@@ -26,6 +26,8 @@ import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './reducers'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
+import { NavigationContainer } from '@react-navigation/native';
+import AppNavigation from './routes'
 
 
 const store = createStore(
@@ -40,16 +42,13 @@ const App = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
   console.log(`>> APp: ${carousels.length}`)
+  //<StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} /> /
+  return (<Provider store={store}>
+    <NavigationContainer>
+      <AppNavigation />
+    </NavigationContainer>
+  </Provider>)
 
-  return (
-    <Provider store={store}>
-      <SafeAreaView style={backgroundStyle}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <Dashboard />
-      </SafeAreaView>
-    </Provider>
-
-  );
 };
 
 export default App;
