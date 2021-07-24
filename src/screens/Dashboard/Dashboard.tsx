@@ -1,31 +1,27 @@
 import React, { useEffect } from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, ScrollView } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigation } from '@react-navigation/native';
 import { getDiscountedProducts } from '../../actions/products'
 import { getCarouselProducts } from '../../actions/productCarousels'
-import Carousel from '../../components/Carousel/Carosel'
+import Carousel from '../../components/Carousel/Carousel'
 import DiscountCard from '../../components/DiscountCard/DiscountCard'
+import { Dimensions } from 'react-native';
+import { SCREEN } from '../../routes';
+import { AppState } from '../../reducers';
+import styles from './Dashboard.styles'
 
-const styles = StyleSheet.create({
-    screen: {
-        width: '100%',
-        height: '100%'
-    },
-    carouselContainer: {
-        width: '100%',
-        height: '20%'
-    }
-})
 
 export const Dashboard = () => {
     const dispatch = useDispatch()
     const navigation = useNavigation()
-    const { carousels, products } = useSelector((state: any) => {
+    const windowWidth = Dimensions.get('window').width;
+
+    const { carousels, products } = useSelector((state: AppState) => {
         return {
-            isLoadingProducts: state['products']['isLoading'],
-            products: state['products']['discountedProducts'],
-            carousels: state['carousels']['products']
+            isLoadingProducts: state?.products?.isLoading,
+            products: state?.products?.discountedProducts,
+            carousels: state?.carousels?.products
         }
     })
 
@@ -36,7 +32,7 @@ export const Dashboard = () => {
 
 
     const onViewAllDiscountClick = () => {
-        navigation.navigate('AllProducts')
+        navigation.navigate(SCREEN.ALL_PRODUCTS)
     }
 
     const onProductClick = (product: any) => {
@@ -45,16 +41,17 @@ export const Dashboard = () => {
     }
 
     return (
-        <View style={styles.screen}>
+        <ScrollView style={styles.screen}>
             <View style={styles.carouselContainer}>
                 <Carousel
-                    items={carousels} />
+                    items={carousels}
+                    width={windowWidth} />
             </View >
             <DiscountCard
                 discountProducts={products}
                 onViewAllClick={onViewAllDiscountClick}
                 onProductClick={onProductClick} />
-        </View >
+        </ScrollView >
     )
 }
 

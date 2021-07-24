@@ -7,13 +7,19 @@ import {
     UPDATE_DISCOUNTED_PRODUCTS
 } from '../actions/products'
 
+export type ProductState = {
+    isLoading: Boolean
+    allProducts: any[]
+    discountedProducts: any[]
+}
+
 const initialState = {
     isLoading: false,
     allProducts: [],
     discountedProducts: []
 }
 
-const productReducer = (state = initialState, action: Action) => {
+const productReducer = (state: ProductState = initialState, action: Action) => {
     switch (action.type) {
         case LOADING_PRODUCTS: {
             return {

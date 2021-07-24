@@ -4,25 +4,8 @@ import { Button } from 'react-native-elements'
 import ProductGrid from '../ProductGrid/ProductGrid'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import * as _ from 'lodash'
-const styles = StyleSheet.create({
-    mainBackground: {
-        backgroundColor: 'cyan'
-    },
-    header: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        margin: 10
-    },
-    headerTitle: {
-        fontWeight: '600'
-    },
-    productListingBackground: {
-        backgroundColor: 'white',
-        margin: 10
-    }
-})
+import styles from './DiscountCard.styles'
+
 
 interface DiscountCardProps {
     discountProducts: any[]
@@ -31,17 +14,17 @@ interface DiscountCardProps {
 }
 
 const DiscountCard = (props: DiscountCardProps) => {
-    const { discountProducts } = props
+    const { discountProducts, onViewAllClick, onProductClick } = props
     const sampleCards = _.slice(discountProducts, 0, 4)
 
     return (
         <View style={styles.mainBackground}>
             <View style={styles.header}>
                 <Text style={styles.headerTitle}>Discounts For You</Text>
-                <Button title={'View All >'} onPress={props?.onViewAllClick} />
+                <Button title={'View All >'} onPress={onViewAllClick} />
             </View>
             <View style={styles.productListingBackground}>
-                <ProductGrid items={sampleCards} onProductPress={props?.onProductClick} />
+                <ProductGrid items={sampleCards} onProductPress={onProductClick} />
             </View>
         </View>
     )

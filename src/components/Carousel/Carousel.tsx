@@ -1,38 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel'
 import * as _ from 'lodash'
 import { Image } from 'react-native-elements'
 
-const styles = StyleSheet.create({
-  carousel: {
-    flex: 1,
-    alignItems: 'center',
-    width: '100%',
-    justifyContent: 'center',
-  },
-  pagination: {
-    position: 'absolute',
-    bottom: 0
-  },
-  inactiveDotStyle: {
-    width: 7,
-    height: 7,
-    borderRadius: 7,
-    marginHorizontal: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.2)'
-  },
-  paginationDotStyle: {
-    width: 12,
-    height: 7,
-    borderRadius: 7,
-    backgroundColor: 'rgba(0, 0, 0, 0.35)'
-  },
-  carouselItem: {
-    width: '100%',
-    height: '100%'
-  }
-})
+import { carouselStyles, carouselItemStyles } from './Carousel.styles'
 
 interface CarouselProps {
   items: any[]
@@ -46,7 +18,7 @@ function ProductCarousel(props: CarouselProps) {
   const { items, width = 400 } = props
   const item = _.first(items)
   return (
-    <View style={styles.carousel}>
+    <View style={carouselStyles.carousel}>
       <Carousel
         ref={carouselRef}
         layout={'default'}
@@ -61,10 +33,10 @@ function ProductCarousel(props: CarouselProps) {
         dotsLength={items.length}
         activeDotIndex={index}
         carouselRef={carouselRef}
-        containerStyle={styles.pagination}
-        dotStyle={styles.paginationDotStyle}
+        containerStyle={carouselStyles.pagination}
+        dotStyle={carouselStyles.paginationDotStyle}
         inactiveDotOpacity={1.0}
-        inactiveDotStyle={styles.inactiveDotStyle}
+        inactiveDotStyle={carouselStyles.inactiveDotStyle}
         inactiveDotScale={1}
         tappableDots={true}
       />
@@ -77,7 +49,7 @@ function CarouselItem(props) {
   const { item } = props
   return <Image
     source={{ uri: item?.backgroundImage }}
-    style={styles.carouselItem}
+    style={carouselItemStyles.image}
     PlaceholderContent={<ActivityIndicator />}
   />
 }

@@ -5,13 +5,19 @@ import {
     UPDATE_CAROUSEL_PRODUCTS,
     ERROR_UPDATING_CAROUSEL_PRODUCTS,
 } from '../actions/productCarousels'
+import ProductCarousel from '../components/Carousel/Carousel'
 
-const initialState = {
+export type ProductCarouselState = {
+    isLoading: Boolean
+    products: any[]
+}
+
+const initialState: ProductCarouselState = {
     isLoading: false,
     products: []
 }
 
-const productCarouselReducer = (state = initialState, action: Action) => {
+const productCarouselReducer = (state: ProductCarouselState = initialState, action: Action) => {
     switch (action.type) {
         case LOADING_PRODUCT_CAROUSEL: {
             return {

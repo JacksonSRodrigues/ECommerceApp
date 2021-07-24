@@ -1,8 +1,10 @@
-import { products } from '../data/products'
+import { products } from '../../data/products'
 import * as _ from 'lodash'
 
 export const getProducts = async () => {
-    return Promise.resolve().then(() => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(''), 1000)
+    }).then(() => {
         return products
     })
 }
