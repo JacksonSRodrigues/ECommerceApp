@@ -8,18 +8,12 @@ import * as _ from 'lodash'
 interface DiscountCardProps {
     discountProducts: any[]
     onViewAllClick: () => void
+    onProductClick: (product: any) => void
 }
 
 const DiscountCard = (props: DiscountCardProps) => {
     const { discountProducts } = props
-    const sampleCards = useMemo(() => {
-        const cards = _.filter(discountProducts, item => {
-
-            return !_.isEmpty(item.offerText)
-        })
-        console.log(`>> executed memo : ${_.size(cards)}`)
-        return cards
-    }, discountProducts)
+    const sampleCards = _.slice(discountProducts, 0, 4)
 
     return (
         <View style={{ backgroundColor: 'cyan' }}>
@@ -28,9 +22,8 @@ const DiscountCard = (props: DiscountCardProps) => {
                 <Button title={'View All >'} onPress={props?.onViewAllClick} />
             </View>
             <View style={{ backgroundColor: 'white', margin: 10 }}>
-                <ProductGrid items={sampleCards} />
+                <ProductGrid items={sampleCards} onProductPress={props?.onProductClick} />
             </View>
-
         </View>
     )
 }
