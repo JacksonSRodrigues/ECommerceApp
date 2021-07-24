@@ -26,14 +26,25 @@ export const getProducts = () => async (dispatch: any) => {
         const products = await ProductsAPI.getProducts()
         console.log(`>> state update products: ${products.length}`)
         dispatch(updateProducts(products))
-        dispatch(updateDiscountProducts())
     } catch (error) {
         dispatch(errorOnUpdateProducts(error))
     }
 
 }
 
-export const updateDiscountProducts = (): Action => ({
-    type: UPDATE_DISCOUNTED_PRODUCTS
+export const getDiscountedProducts = () => async (dispatch: any) => {
+    dispatch(loadingProducts())
+    try {
+        const products = await ProductsAPI.getDiscountedProducts()
+        dispatch(updateDiscountProducts(products))
+    } catch (error) {
+        dispatch(errorOnUpdateProducts(error))
+    }
+
+}
+
+export const updateDiscountProducts = (products: any): Action => ({
+    type: UPDATE_DISCOUNTED_PRODUCTS,
+    payload: products
 })
 

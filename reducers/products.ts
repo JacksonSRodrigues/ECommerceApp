@@ -38,11 +38,10 @@ const productReducer = (state = initialState, action: Action) => {
         }
 
         case UPDATE_DISCOUNTED_PRODUCTS: {
-            const discountedProducts = state?.allProducts.filter((product) => !_.isEmpty(product['offerText']))
             return {
                 ...state,
                 isLoading: false,
-                discountedProducts
+                discountedProducts: action.payload
             }
         }
 

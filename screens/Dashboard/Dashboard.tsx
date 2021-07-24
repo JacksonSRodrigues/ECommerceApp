@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { View, Text } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux'
-import * as Products from '../../actions/products'
+import { getDiscountedProducts } from '../../actions/products'
+import { getCarouselProducts } from '../../actions/productCarousels'
 import Carousel from '../../components/Carousel/Carosel'
 import DiscountCard from '../../components/DiscountCard/DiscountCard'
 
@@ -12,12 +13,13 @@ export const Dashboard = () => {
         return {
             isLoadingProducts: state['products']['isLoading'],
             products: state['products']['discountedProducts'],
-            carousels: []
+            carousels: state['carousels']['products']
         }
     })
 
     useEffect(() => {
-        dispatch(Products.getProducts())
+        dispatch(getCarouselProducts())
+        dispatch(getDiscountedProducts())
     }, [])
 
 
