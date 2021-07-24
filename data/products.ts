@@ -1,4 +1,4 @@
-export default [
+export const products = [
   {
     "productID":"1", 
     "name": "T-Shirt BellaCiao",
@@ -6,7 +6,8 @@ export default [
     "price": "",
     "thumbnail": "https://tinyurl.com/y4f5e96j",
     "rating":"",
-    "inStock": ""
+    "inStock": "",
+    "offerText": "Min 50% off"
   },
   {
     "productID":"2", 
@@ -15,7 +16,8 @@ export default [
     "price": "",
     "thumbnail": "https://tinyurl.com/y2szwrys",
     "rating":"",
-    "inStock": ""
+    "inStock": "",
+    "offerText": "Min 20% off"
   },
   {
     "productID":"3", 
@@ -27,7 +29,7 @@ export default [
     "inStock": ""
   },
   {
-    "productID":"1", 
+    "productID":"4", 
     "name": "Shirt Formal Blues",
     "description":"",
     "price": "",
@@ -36,7 +38,7 @@ export default [
     "inStock": ""
   },
   {
-    "productID":"1", 
+    "productID":"5", 
     "name": "Round Neck HRX edition",
     "description":"",
     "price": "",
@@ -45,8 +47,8 @@ export default [
     "inStock": ""
   },
   {
-    "productID":"Salwar Green", 
-    "name": "",
+    "productID":"6", 
+    "name": "Salwar Green",
     "description":"",
     "price": "",
     "thumbnail": "https://tinyurl.com/y2yhf95n",
@@ -54,22 +56,24 @@ export default [
     "inStock": ""
   },
   {
-    "productID":"1", 
+    "productID":"7", 
     "name": "Dress Black",
     "description":"",
     "price": "",
     "thumbnail": "https://tinyurl.com/y5n467o3",
     "rating":"",
-    "inStock": ""
+    "inStock": "",
+    "offerText": "Min 5% off"
   },
   {
-    "productID":"1", 
+    "productID":"8", 
     "name": "Saree Traditional",
     "description":"",
     "price": "",
     "thumbnail": "https://tinyurl.com/yxupqdll",
     "rating":"",
-    "inStock": ""
+    "inStock": "",
+    "offerText": "Min 10% off"
   },
 
 ]

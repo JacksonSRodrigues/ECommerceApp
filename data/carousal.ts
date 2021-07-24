@@ -1,4 +1,4 @@
-export default [
+export const carousels = [
   {
     "productID": "",
     "backgroundImage": "https://tinyurl.com/y3w8oaah"
