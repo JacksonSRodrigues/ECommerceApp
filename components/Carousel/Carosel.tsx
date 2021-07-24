@@ -1,33 +1,36 @@
 import React, { useState, useRef } from 'react';
 import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import Carousel, { Pagination } from 'react-native-snap-carousel'
 import * as _ from 'lodash'
 import { Image } from 'react-native-elements'
-
-import Carousel, { Pagination } from 'react-native-snap-carousel'
 
 const styles = StyleSheet.create({
   carousel: {
     flex: 1,
     alignItems: 'center',
-    height: '100%',
+    width: '100%',
     justifyContent: 'center',
   },
   pagination: {
     position: 'absolute',
-    backgroundColor: 'red',
-    left: 0,
-    top: 0
+    bottom: 0
+  },
+  inactiveDotStyle: {
+    width: 7,
+    height: 7,
+    borderRadius: 7,
+    marginHorizontal: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.2)'
   },
   paginationDotStyle: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    marginHorizontal: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.92)'
+    width: 12,
+    height: 7,
+    borderRadius: 7,
+    backgroundColor: 'rgba(0, 0, 0, 0.35)'
   },
   carouselItem: {
     width: '100%',
-    height: 200
+    height: '100%'
   }
 })
 
@@ -58,10 +61,11 @@ function ProductCarousel(props: CarouselProps) {
         dotsLength={items.length}
         activeDotIndex={index}
         carouselRef={carouselRef}
-        style={styles.pagination}
+        containerStyle={styles.pagination}
         dotStyle={styles.paginationDotStyle}
-        inactiveDotOpacity={0.4}
-        inactiveDotScale={0.6}
+        inactiveDotOpacity={1.0}
+        inactiveDotStyle={styles.inactiveDotStyle}
+        inactiveDotScale={1}
         tappableDots={true}
       />
     </View>
