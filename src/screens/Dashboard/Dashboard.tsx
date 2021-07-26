@@ -10,17 +10,14 @@ import { Dimensions } from 'react-native';
 import { SCREEN } from '../../routes';
 import { AppState } from '../../reducers';
 import styles from './Dashboard.styles'
-import { AnimatedSearchBar } from '../../components/SearchBar/SearchBar'
+import { AnimatedSearchBar, useAutoHideSearchBar, SEARCH_BAR_HEIGHT } from '../../components/SearchBar/SearchBar'
 
-
-const SearchBarHeight = 55
 
 export const Dashboard = () => {
-    const [searchBarHeight, setSearchBarHeight] = useState(new Animated.Value(SearchBarHeight))
-    const [isNavBarHidden, setIsNavBarHidden] = useState(false)
     const dispatch = useDispatch()
     const navigation = useNavigation()
     const windowWidth = Dimensions.get('window').width;
+    const [searchBarHeight, setIsSearchBarHidden] = useAutoHideSearchBar()
 
     const { carousels, products } = useSelector((state: AppState) => {
         return {
@@ -35,17 +32,9 @@ export const Dashboard = () => {
         dispatch(getDiscountedProducts())
     }, [])
 
-    useEffect(() => {
-        Animated.timing(searchBarHeight, {
-            duration: 100,
-            toValue: isNavBarHidden ? 0 : SearchBarHeight,
-            useNativeDriver: false
-        }).start()
-    }, [isNavBarHidden])
-
     const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-        const hasCrossedThreshold = event.nativeEvent.contentOffset.y > SearchBarHeight
-        setIsNavBarHidden(hasCrossedThreshold)
+        const hasCrossedThreshold = event.nativeEvent.contentOffset.y > SEARCH_BAR_HEIGHT
+        setIsSearchBarHidden(hasCrossedThreshold)
     }
 
 
