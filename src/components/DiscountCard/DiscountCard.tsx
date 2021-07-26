@@ -15,7 +15,7 @@ interface DiscountCardProps {
 
 const DiscountCard = (props: DiscountCardProps) => {
     const { discountProducts, onViewAllClick, onProductClick } = props
-    const sampleCards = _.slice(discountProducts, 0, 4)
+    const sampleCards = _.slice(discountProducts, 0)
 
     return (
         <View style={styles.mainBackground}>
