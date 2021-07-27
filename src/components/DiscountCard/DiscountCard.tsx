@@ -2,7 +2,6 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { Button } from 'react-native-elements'
 import ProductGrid from '../ProductGrid/ProductGrid'
-import Icon from 'react-native-vector-icons/FontAwesome';
 import * as _ from 'lodash'
 import styles from './DiscountCard.styles'
 

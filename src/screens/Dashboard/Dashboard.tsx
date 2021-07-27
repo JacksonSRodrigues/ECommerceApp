@@ -11,6 +11,7 @@ import { SCREEN } from '../../routes';
 import { AppState } from '../../reducers';
 import styles from './Dashboard.styles'
 import { AnimatedSearchBar, useAutoHideSearchBar, SEARCH_BAR_HEIGHT } from '../../components/SearchBar/SearchBar'
+import AddressBar from '../../components/Address/AddressBar/AddressBar';
 
 
 export const Dashboard = () => {
@@ -51,6 +52,7 @@ export const Dashboard = () => {
         <View style={{ flex: 1 }} >
             <AnimatedSearchBar style={{ height: searchBarHeight }} />
             <ScrollView style={styles.screen} onScroll={handleScroll}>
+                <AddressBar />
                 <View style={styles.carouselContainer}>
                     <Carousel
                         items={carousels}
