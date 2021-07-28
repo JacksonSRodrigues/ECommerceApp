@@ -10,7 +10,8 @@ import { Dimensions } from 'react-native';
 import { SCREEN } from '../../routes';
 import { AppState } from '../../reducers';
 import styles from './Dashboard.styles'
-import { AnimatedSearchBar, useAutoHideSearchBar, SEARCH_BAR_HEIGHT } from '../../components/SearchBar/SearchBar'
+import { AnimatedSearchBar, SEARCH_BAR_HEIGHT } from '../../components/SearchBar/SearchBar'
+import { useResizeAnimation } from '../../components/core/animationHooks'
 import AddressBar from '../../components/Address/AddressBar/AddressBar';
 
 
@@ -18,7 +19,7 @@ export const Dashboard = () => {
     const dispatch = useDispatch()
     const navigation = useNavigation()
     const windowWidth = Dimensions.get('window').width;
-    const [searchBarHeight, setIsSearchBarHidden] = useAutoHideSearchBar()
+    const [searchBarHeight, setIsSearchBarHidden] = useResizeAnimation(SEARCH_BAR_HEIGHT, 0)
 
     const { carousels, products } = useSelector((state: AppState) => {
         return {

@@ -32,23 +32,4 @@ export class SearchBar extends Component<SearchBarProps, any> {
 
 export default SearchBar
 
-
-export const useAutoHideSearchBar = (
-    originalSearchHeight: number = SEARCH_BAR_HEIGHT,
-    isHidden: boolean = false,
-    animationDuration: number = 200
-): [Animated.Value, (isHidden: boolean) => void] => {
-    const [searchBarHeight, setSearchBarHeight] = useState(new Animated.Value(0))
-    const [isSearchBarHidden, setIsSearchBarHidden] = useState(isHidden)
-
-    useEffect(() => {
-        Animated.timing(searchBarHeight, {
-            duration: animationDuration,
-            toValue: isSearchBarHidden ? 0 : SEARCH_BAR_HEIGHT,
-            useNativeDriver: false
-        }).start()
-    }, [isSearchBarHidden])
-
-    return [searchBarHeight, setIsSearchBarHidden]
-}
 export const AnimatedSearchBar = Animated.createAnimatedComponent(SearchBar)
