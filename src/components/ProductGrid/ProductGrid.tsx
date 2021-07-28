@@ -12,7 +12,7 @@ function ProductGrid(props: ProductGridProps) {
     return (
         <FlatList
             data={items}
-            keyExtractor={(product) => product.id}
+            keyExtractor={(product) => product.productID}
             renderItem={({ index, item }) => {
                 return <ProductItem
                     name={item.name}
