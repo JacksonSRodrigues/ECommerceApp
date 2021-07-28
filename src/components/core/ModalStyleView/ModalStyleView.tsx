@@ -1,9 +1,11 @@
+import { compact } from 'lodash'
 import React from 'react'
 import { View } from 'react-native'
+import styles from './ModalStyleView.styles'
 
 const ModalStyleView = (props: any) => {
     return (
-        <View style={{ flex: 1, flexGrow: 1, flexDirection: 'row', backgroundColor: 'rgba(0,0,0,0.3)' }}>
+        <View style={styles.modalStyle}>
             {props.children}
         </View>
     )
