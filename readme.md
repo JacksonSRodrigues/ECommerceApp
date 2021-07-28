@@ -18,6 +18,3 @@ npm run ios
 
 ### Dashboard
 ![Dashboard](./sample_screens/dashboard.gif)
-
-### Update Address
-![Update Address](./sample_screens/update_address.gif)
