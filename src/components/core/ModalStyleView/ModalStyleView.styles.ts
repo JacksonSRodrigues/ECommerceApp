@@ -2,9 +2,9 @@ import { StyleSheet } from "react-native"
 
 const styles = StyleSheet.create({
     modalStyle: {
-        flex: 1,
+        display: 'flex',
         flexGrow: 1,
-        flexDirection: 'row',
+        flexDirection: 'column',
         backgroundColor: 'rgba(0,0,0,0.3)'
     }
 })

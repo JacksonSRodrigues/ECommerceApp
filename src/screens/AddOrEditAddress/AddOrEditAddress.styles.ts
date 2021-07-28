@@ -4,6 +4,7 @@ export const AddOrEditAddressStyles = StyleSheet.create({
     containerStyle: {
         flex: 1,
         height: 400,
+        width: '100%',
         alignSelf: 'flex-end',
         backgroundColor: 'white',
         padding: 15

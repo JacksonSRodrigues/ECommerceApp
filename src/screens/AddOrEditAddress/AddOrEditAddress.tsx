@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { ModalStyleView, LinkWithIcon } from '../../components/core'
 import {
     AddOrEditAddressStyles,
@@ -8,8 +9,9 @@ import {
 } from './AddOrEditAddress.styles'
 
 const AddOrEditAddress = () => {
+    const navigation = useNavigation()
     return (
-        <ModalStyleView>
+        <ModalStyleView onOutsideClick={() => navigation.goBack()}>
             <View style={AddOrEditAddressStyles.containerStyle}>
                 <Text style={AddOrEditAddressStyles.heading}>Choose your location</Text>
                 <Text style={AddOrEditAddressStyles.summary}>Select a delivery location to see product availability and delivery options</Text>
@@ -30,7 +32,7 @@ const AddressList = () => {
 
 const AddAddressCard = (props: any) => {
     return (<TouchableOpacity style={AddAddressStyles.containerStyle}>
-        <Text style={AddAddressStyles.containerStyle}>Add an address or pick-up point</Text>
+        <Text style={AddAddressStyles.summary}>Add an address or pick-up point</Text>
     </TouchableOpacity>)
 }
 
