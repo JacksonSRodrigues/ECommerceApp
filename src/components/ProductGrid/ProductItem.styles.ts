@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     productContainer: {
         width: '48%',
         height: 220,
-        margin: '1%'
+        margin: '1%',
     },
     thumbnail: {
         width: '100%',

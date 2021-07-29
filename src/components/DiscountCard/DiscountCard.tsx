@@ -4,7 +4,7 @@ import { Button } from 'react-native-elements'
 import ProductGrid from '../ProductGrid/ProductGrid'
 import * as _ from 'lodash'
 import styles from './DiscountCard.styles'
-
+import ProductItem from '../ProductGrid/ProductItem'
 
 interface DiscountCardProps {
     discountProducts: any[]
@@ -14,7 +14,7 @@ interface DiscountCardProps {
 
 const DiscountCard = (props: DiscountCardProps) => {
     const { discountProducts, onViewAllClick, onProductClick } = props
-    const sampleCards = _.slice(discountProducts, 0)
+    const sampleCards = _.slice(discountProducts, 0, 4)
 
     return (
         <View style={styles.mainBackground}>
@@ -23,7 +23,13 @@ const DiscountCard = (props: DiscountCardProps) => {
                 <Button title={'View All >'} onPress={onViewAllClick} />
             </View>
             <View style={styles.productListingBackground}>
-                <ProductGrid items={sampleCards} onProductPress={onProductClick} />
+                {
+                    sampleCards.map((item) => (
+                        <ProductItem name={item.name}
+                            thumbnail={item.thumbnail}
+                            offerText={item?.offerText}
+                            onPress={() => props.onProductClick?.(item)} />))
+                }
             </View>
         </View>
     )

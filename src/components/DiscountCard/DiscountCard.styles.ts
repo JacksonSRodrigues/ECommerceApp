@@ -16,7 +16,10 @@ const styles = StyleSheet.create({
     },
     productListingBackground: {
         backgroundColor: 'white',
-        margin: 10
+        margin: 10,
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap'
     }
 })
 
