@@ -25,7 +25,9 @@ const DiscountCard = (props: DiscountCardProps) => {
             <View style={styles.productListingBackground}>
                 {
                     sampleCards.map((item) => (
-                        <ProductItem name={item.name}
+                        <ProductItem 
+                            key={item.productID}
+                            name={item.name}
                             thumbnail={item.thumbnail}
                             offerText={item?.offerText}
                             onPress={() => props.onProductClick?.(item)} />))

@@ -1,17 +1,18 @@
 import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { useDispatch } from 'react-redux'
 import { ModalStyleView, LinkWithIcon } from '../../components/core'
 import {
     AddOrEditAddressStyles,
     AddressListStyles,
     AddAddressStyles
 } from './AddOrEditAddress.styles'
+import { hideUpdateAddressScreen} from '../../actions/address'
 
 const AddOrEditAddress = () => {
-    const navigation = useNavigation()
+    const dispatch = useDispatch()
     return (
-        <ModalStyleView onOutsideClick={() => navigation.goBack()}>
+        <ModalStyleView onOutsideClick={() => dispatch(hideUpdateAddressScreen())}>
             <View style={AddOrEditAddressStyles.containerStyle}>
                 <Text style={AddOrEditAddressStyles.heading}>Choose your location</Text>
                 <Text style={AddOrEditAddressStyles.summary}>Select a delivery location to see product availability and delivery options</Text>

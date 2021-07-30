@@ -1,13 +1,13 @@
 import React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { Text, TouchableOpacity } from 'react-native'
 import { Icon } from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import styles from './AddressBar.styles'
-import { SCREEN } from '../../../routes'
+import {showUpdateAddressScreen} from '../../../actions/address'
 
 const AddressBar = () => {
-    const navigation = useNavigation()
+    const dispatch = useDispatch()
     const { addressSummary = 'Please Select a Delivery Location', isLocationSelected } = useSelector((state) => {
         return {
             addressSummary: undefined,
@@ -16,7 +16,7 @@ const AddressBar = () => {
     })
 
     const onAddOrEditAddress = () => {
-        navigation.navigate(SCREEN.APP_MODALS)
+        dispatch(showUpdateAddressScreen())
     }
 
     return (

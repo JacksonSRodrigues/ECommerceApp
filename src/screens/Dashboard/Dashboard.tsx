@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react'
-import { View, ScrollView, Animated, ScrollResponderEvent, NativeSyntheticEvent, NativeScrollEvent } from 'react-native'
+import { View, ScrollView, Modal, NativeSyntheticEvent, NativeScrollEvent } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigation } from '@react-navigation/native';
 import { getDiscountedProducts } from '../../actions/products'
@@ -13,6 +13,7 @@ import styles from './Dashboard.styles'
 import { AnimatedSearchBar, SEARCH_BAR_HEIGHT } from '../../components/SearchBar/SearchBar'
 import { useResizeAnimation } from '../../components/core/animationHooks'
 import AddressBar from '../../components/Address/AddressBar/AddressBar';
+import AddOrEditAddress from '../AddOrEditAddress/AddOrEditAddress'
 
 
 export const Dashboard = () => {
@@ -21,8 +22,13 @@ export const Dashboard = () => {
     const windowWidth = Dimensions.get('window').width;
     const [searchBarHeight, setIsSearchBarHidden] = useResizeAnimation(SEARCH_BAR_HEIGHT, 0)
 
-    const { carousels, products } = useSelector((state: AppState) => {
+    const {
+        carousels,
+        products,
+        showAddressSelection
+    } = useSelector((state: AppState) => {
         return {
+            showAddressSelection: state?.address.showAddOrEditOption,
             isLoadingProducts: state?.products?.isLoading,
             products: state?.products?.discountedProducts,
             carousels: state?.carousels?.products
@@ -51,6 +57,7 @@ export const Dashboard = () => {
 
     return (
         <View style={{ flex: 1 }} >
+            {showAddressSelection && <Modal animationType='slide' transparent={true}><AddOrEditAddress /></Modal>}
             <AnimatedSearchBar style={{ height: searchBarHeight }} />
             <ScrollView style={styles.screen} onScroll={handleScroll}>
                 <AddressBar />
