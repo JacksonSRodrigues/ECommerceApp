@@ -32,24 +32,6 @@ const CoreNavigation = () => {
     )
 }
 
-const ModalStack = createStackNavigator()
-const ModalNavigation = () => {
-    return (
-        <ModalStack.Navigator
-            screenOptions={{
-                headerShown: false,
-                cardStyle: { backgroundColor: 'transparent' }
-            }}
-            initialRouteName={SCREEN.ADD_OR_EDIT_ADDRESS}>
-            <ModalStack.Screen
-                name={SCREEN.ADD_OR_EDIT_ADDRESS}
-                component={AddOrEditAddress}
-            />
-
-        </ModalStack.Navigator>
-    )
-}
-
 const RootStack = createStackNavigator()
 const AppNavigation = () => {
     return (
@@ -63,10 +45,6 @@ const AppNavigation = () => {
             <RootStack.Screen
                 name={SCREEN.CORE}
                 component={CoreNavigation}
-            />
-            <RootStack.Screen
-                name={SCREEN.APP_MODALS}
-                component={ModalNavigation}
             />
         </RootStack.Navigator>
     )
