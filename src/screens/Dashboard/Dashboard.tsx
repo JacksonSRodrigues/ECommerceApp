@@ -14,6 +14,7 @@ import { AnimatedSearchBar, SEARCH_BAR_HEIGHT } from '../../components/SearchBar
 import { useResizeAnimation } from '../../components/core/animationHooks'
 import AddressBar from '../../components/Address/AddressBar/AddressBar';
 import AddOrEditAddress from '../AddOrEditAddress/AddOrEditAddress'
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 export const Dashboard = () => {
@@ -56,10 +57,10 @@ export const Dashboard = () => {
     }
 
     return (
-        <View style={{ flex: 1 }} >
+        <View style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'red', flexGrow: 1 }} >
             {showAddressSelection && <Modal animationType='slide' transparent={true}><AddOrEditAddress /></Modal>}
             <AnimatedSearchBar style={{ height: searchBarHeight }} />
-            <ScrollView style={styles.screen} onScroll={handleScroll}>
+            <ScrollView style={styles.contentContainer} onScroll={handleScroll} >
                 <AddressBar />
                 <View style={styles.carouselContainer}>
                     <Carousel

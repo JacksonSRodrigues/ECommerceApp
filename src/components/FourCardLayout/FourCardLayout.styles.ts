@@ -1,8 +1,8 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
     mainBackground: {
-        backgroundColor: 'cyan'
+        backgroundColor: 'white'
     },
     header: {
         display: 'flex',
@@ -12,14 +12,20 @@ const styles = StyleSheet.create({
         margin: 10
     },
     headerTitle: {
-        fontWeight: '600'
+        fontWeight: '300',
+        fontSize: 20
     },
-    productListingBackground: {
+    productItemsBg: {
         backgroundColor: 'white',
-        margin: 10,
+        margin: 5,
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap'
+    },
+    seeMoreContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        marginHorizontal: 5
     }
 })
 

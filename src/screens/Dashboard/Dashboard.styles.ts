@@ -1,14 +1,14 @@
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
-    screen: {
+    contentContainer: {
         width: '100%',
-        height: '100%',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        flex: 1
     },
     carouselContainer: {
         width: '100%',
-        height: '25%'
+        height: 200
     }
 })
 
