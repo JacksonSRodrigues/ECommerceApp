@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel'
 import * as _ from 'lodash'
@@ -17,6 +17,7 @@ function ProductCarousel(props: CarouselProps) {
   const [index, setIndex] = useState(0)
   const { items, width = 400 } = props
   const item = _.first(items)
+
   return (
     <View style={carouselStyles.carousel}>
       <Carousel
@@ -27,7 +28,9 @@ function ProductCarousel(props: CarouselProps) {
         sliderWidth={width}
         itemWidth={width}
         useScrollView={true}
-        onSnapToItem={(_index) => setIndex(_index)}
+        onSnapToItem={(_index: number) => setIndex(_index)}
+        autoplay={true}
+        loop={true}
       />
       <Pagination
         dotsLength={items.length}
