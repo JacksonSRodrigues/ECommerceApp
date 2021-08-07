@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Animated } from 'react-native'
 
 export const useResizeAnimation = (
@@ -7,16 +7,16 @@ export const useResizeAnimation = (
     animationDuration: number = 200,
     isResizedByDefault: boolean = false
 ): [Animated.Value, (isHidden: boolean) => void] => {
-    const [viewHeight, setViewHeight] = useState(new Animated.Value(toHeight))
+    const viewHeight = useRef(new Animated.Value(toHeight))
     const [isViewResized, setIsViewResized] = useState(isResizedByDefault)
 
     useEffect(() => {
-        Animated.timing(viewHeight, {
+        Animated.timing(viewHeight.current, {
             duration: animationDuration,
             toValue: isViewResized ? toHeight : originalHeight,
             useNativeDriver: false
         }).start()
     }, [isViewResized])
 
-    return [viewHeight, setIsViewResized]
+    return [viewHeight.current, setIsViewResized]
 }

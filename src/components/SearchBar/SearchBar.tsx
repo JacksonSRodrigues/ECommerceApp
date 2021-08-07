@@ -6,10 +6,10 @@ import styles from './SearchBar.styles'
 export const SEARCH_BAR_HEIGHT = 55
 
 type SearchBarProps = {
-    style: any
-    placeHolder: string,
-    value: string,
-    onChangeText: (text: string) => void,
+    style?: any
+    placeHolder?: string,
+    value?: string,
+    onChangeText?: (text: string) => void,
 }
 
 export class SearchBar extends Component<SearchBarProps, any> {

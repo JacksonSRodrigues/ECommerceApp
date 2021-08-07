@@ -53,7 +53,6 @@ export const Dashboard = () => {
 
     const onProductClick = (product: any) => {
         console.log(product)
-        navigation.navigate
     }
 
     return (
