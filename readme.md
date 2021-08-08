@@ -13,3 +13,8 @@ npm run pod
 npm run ios
 
 ```
+
+## Sample Screens
+
+### Dashboard
+![Dashboard](./sample_screens/dashboard.gif)

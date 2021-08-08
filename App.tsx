@@ -23,11 +23,11 @@ import { products } from './data/products'
 import Dashboard from './screens/Dashboard/Dashboard'
 
 import { createStore, applyMiddleware } from 'redux'
-import rootReducer from './reducers'
+import rootReducer from './src/reducers'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk';
 import { NavigationContainer } from '@react-navigation/native';
-import AppNavigation from './routes'
+import AppNavigation from './src/routes'
 
 
 const store = createStore(
