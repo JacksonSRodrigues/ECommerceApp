@@ -21,7 +21,7 @@ const CoreNavigation = () => {
             screenOptions={{ headerTintColor: 'red' }}
             initialRouteName={SCREEN.DASHBOARD}>
             <CoreStack.Screen
-                name={SCREEN.DASHBOARD}
+                name={'ECommerCE'}
                 component={Dashboard}
             />
             <CoreStack.Screen
