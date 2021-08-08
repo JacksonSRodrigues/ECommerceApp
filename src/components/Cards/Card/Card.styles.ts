@@ -1,8 +1,15 @@
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
-    mainBackground: {
+    cardBackground: {
         backgroundColor: 'white'
+    },
+    productItemsBg: {
+        backgroundColor: 'white',
+        margin: 5,
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap'
     },
     header: {
         display: 'flex',
@@ -14,13 +21,6 @@ const styles = StyleSheet.create({
     headerTitle: {
         fontWeight: '300',
         fontSize: 20
-    },
-    productItemsBg: {
-        backgroundColor: 'white',
-        margin: 5,
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap'
     },
     seeMoreContainer: {
         display: 'flex',

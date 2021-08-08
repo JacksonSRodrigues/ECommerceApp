@@ -18,6 +18,7 @@ function ProductGrid(props: ProductGridProps) {
                     name={item.name}
                     thumbnail={item.thumbnail}
                     offerText={item?.offerText}
+                    itemStyle={{ height: 250 }}
                     onPress={() => onProductPress?.(item)} />
             }}
             numColumns={2}

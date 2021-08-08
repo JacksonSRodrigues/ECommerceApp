@@ -3,21 +3,22 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
     productContainer: {
+        display: 'flex',
         width: '48%',
-        height: 220,
+        height: '100%',
         margin: '1%',
     },
     thumbnail: {
         width: '100%',
-        height: 180
+        height: '75%',
     },
     title: {
         color: 'black',
-        alignSelf: 'center'
+        alignSelf: 'center',
     },
     offer: {
         color: 'green',
-        alignSelf: 'center'
+        alignSelf: 'center',
     }
 })
 

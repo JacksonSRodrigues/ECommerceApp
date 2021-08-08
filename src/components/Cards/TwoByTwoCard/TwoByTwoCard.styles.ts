@@ -1,0 +1,9 @@
+import { StyleSheet } from 'react-native'
+
+const styles = StyleSheet.create({
+    itemStyle: {
+        width: '48%'
+    }
+})
+
+export default styles

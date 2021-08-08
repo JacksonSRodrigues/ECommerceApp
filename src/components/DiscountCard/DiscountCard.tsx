@@ -1,6 +1,7 @@
 import React from 'react'
 import * as _ from 'lodash'
-import FourCardLayout from '../FourCardLayout/FourCardLayout'
+import FiveCardLayout from '../Cards/TwoPlusThreeCard/TwoPlusThreeCard'
+
 interface DiscountCardProps {
     discountProducts: any[]
     onViewAllClick: () => void
@@ -11,7 +12,7 @@ const DiscountCard = (props: DiscountCardProps) => {
     const { discountProducts, onViewAllClick, onProductClick } = props
 
     return (
-        <FourCardLayout
+        <FiveCardLayout
             heading={'Discounts For You'}
             viewMoreText={'View All >'}
             items={discountProducts}

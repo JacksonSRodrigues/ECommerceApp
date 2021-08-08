@@ -11,6 +11,6 @@ export const getProducts = async () => {
 
 export const getDiscountedProducts = async () => {
     return Promise.resolve().then(() => {
-        return _.filter(products, (item) => !_.isEmpty(item.offerText))
+        return _.filter(products, (item) => true) //!_.isEmpty(item.offerText))
     })
 }
