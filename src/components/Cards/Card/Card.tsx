@@ -4,8 +4,8 @@ import styles from './Card.styles'
 import Header from './Header'
 import ViewMore from './ViewMore'
 
-interface CardProps {
-    heading?: string
+export interface CardProps {
+    heading: string
     viewMoreText?: string
     onViewMoreClick?: () => void
     children?: any
@@ -13,7 +13,7 @@ interface CardProps {
 
 const Card = (props: CardProps) => {
     const {
-        heading = '',
+        heading,
         viewMoreText = 'View More',
         onViewMoreClick,
         children

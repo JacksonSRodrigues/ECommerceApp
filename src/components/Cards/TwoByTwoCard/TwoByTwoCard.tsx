@@ -3,16 +3,9 @@ import _ from 'lodash'
 import Card from '../Card'
 import styles from './TwoByTwoCard.styles'
 import ProductItem from '../../ProductGrid/ProductItem'
+import { DataCardProps } from '../index'
 
-interface TwoByTwoCardProps {
-    heading: string
-    items: any[]
-    viewMoreText: string,
-    onViewMoreClick: () => void
-    onItemClick: (product: any) => void
-}
-
-const TwoByTwoCard = (props: TwoByTwoCardProps) => {
+const TwoByTwoCard = (props: DataCardProps) => {
     const {
         heading,
         items,

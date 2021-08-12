@@ -8,15 +8,15 @@ export const UPDATE_ADDRESS = 'UPDATE_ADDRESS'
 
 
 export const showUpdateAddressScreen = () => ({
-    type: SHOW_ADDRESS_MODAL
+  type: SHOW_ADDRESS_MODAL
 })
 
 export const hideUpdateAddressScreen = () => ({
-    type: HIDE_ADDRESS_MODAL
+  type: HIDE_ADDRESS_MODAL
 })
 
 
 export const addNewAddress = (address: any): Action => ({
   type: ADD_ADDRESS,
-  payload: address  
+  payload: address
 })
