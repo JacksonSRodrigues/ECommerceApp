@@ -1,17 +1,17 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import styles from './Card.styles'
+import styles from './SummaryCard.styles'
 import Header from './Header'
 import ViewMore from './ViewMore'
 
-interface CardProps {
+interface SummaryCardProps {
     heading?: string
     viewMoreText?: string
     onViewMoreClick?: () => void
     children?: any
 }
 
-const Card = (props: CardProps) => {
+const SummaryCard = (props: SummaryCardProps) => {
     const {
         heading = '',
         viewMoreText = 'View More',
@@ -34,7 +34,7 @@ const Card = (props: CardProps) => {
     )
 }
 
-export default Card
+export default SummaryCard
 
 
 

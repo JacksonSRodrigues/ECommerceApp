@@ -1,6 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
-import Card from '../Card'
+import SummaryCard from '../SummaryCard'
 import ProductItem from '../../ProductGrid/ProductItem'
 import styles from './TwoPlusThreeCard.styles'
 
@@ -18,7 +18,7 @@ const TwoPlusThreeLayout = (props: TwoPlusThreeLayoutProps) => {
     const bottom3Cards = _.slice(items, 2, 5)
 
     return (
-        <Card
+        <SummaryCard
             heading={heading}
             viewMoreText={viewMoreText}
             onViewMoreClick={onViewMoreClick}>
@@ -44,7 +44,7 @@ const TwoPlusThreeLayout = (props: TwoPlusThreeLayoutProps) => {
                         itemStyle={styles.bottomRowItem}
                     />))
             }
-        </Card>
+        </SummaryCard>
     )
 }
 

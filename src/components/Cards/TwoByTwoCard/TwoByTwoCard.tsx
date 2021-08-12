@@ -1,6 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
-import Card from '../Card'
+import SummaryCard from '../SummaryCard'
 import styles from './TwoByTwoCard.styles'
 import ProductItem from '../../ProductGrid/ProductItem'
 
@@ -23,7 +23,7 @@ const TwoByTwoCard = (props: TwoByTwoCardProps) => {
     const fourCards = _.slice(items, 0, 4)
 
     return (
-        <Card
+        <SummaryCard
             heading={heading}
             viewMoreText={viewMoreText}
             onViewMoreClick={onViewMoreClick}>
@@ -38,7 +38,7 @@ const TwoByTwoCard = (props: TwoByTwoCardProps) => {
                         itemStyle={styles.itemStyle}
                     />))
             }
-        </Card>
+        </SummaryCard>
     )
 }
 

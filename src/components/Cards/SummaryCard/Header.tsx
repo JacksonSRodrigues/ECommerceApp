@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import styles from './Card.styles'
+import styles from './SummaryCard.styles'
 
 interface HeaderProps {
     heading: string
